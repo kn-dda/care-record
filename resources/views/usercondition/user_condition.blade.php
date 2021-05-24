@@ -1,4 +1,5 @@
-// user_conditionの一覧を表示する共通のView
+{{-- user_conditionの一覧を表示する共通のView --}}
+
 @if (count($user_condition) > 0)
     <ul class="list-unstyled">
         @foreach ($user_condition as $user_condition)

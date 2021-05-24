@@ -1,4 +1,5 @@
-{{-- ユーザ登録情報 --}}
+{{-- ユーザ登録情報、サインナップに必要な項目 --}}
+
 @extends('layouts.app')
 
 @section('content')
@@ -22,7 +23,7 @@
                 
                 <div class="form-group">
                     {!! Form::label('birthday', 'Birthday') !!}
-                    {!! Form::birthday('birthday', null, ['class' => 'form-control']) !!}
+                    {!! Form::text('birthday', null, ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">

@@ -1,5 +1,6 @@
-{{-- 健康状態の登録フォーム --}}
+{{-- 健康状態の新規登録フォーム --}}
 {{-- 時間を設定する際には、自由入力を防ぐためにtype="time"を使用する --}}
+
 {!! Form::open(['route' => 'usercondition.store']) !!}
     <div class="form-group">
         {!! Form::label('temperature', '体温') !!}

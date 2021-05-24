@@ -1,3 +1,5 @@
+{{-- ユーザログイン情報、ログインに必要な項目 --}}
+
 @extends('layouts.app')
 
 @section('content')
