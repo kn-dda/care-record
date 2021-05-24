@@ -1,3 +1,4 @@
+{{-- ユーザ登録情報 --}}
 @extends('layouts.app')
 
 @section('content')
