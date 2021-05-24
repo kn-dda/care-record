@@ -25,4 +25,29 @@ class UserConditionController extends Controller
         // Welcomeビューでそれらを表示
         return view('welcome', $data);
     }
+    
+    // create メソッドを使ってUserConditionを保存
+    public function store(Request $request)
+    {
+        // バリデーション
+        $request->validate([
+            'temperature' => 'required|max:255',
+            'medicine' => 'required|max:255',
+            'meal_amount' => 'required|max:255',
+            'oxygen' => 'required|max:255',
+            'blood_pressure' => 'required|max:255',
+        ]);
+
+        // 認証済みユーザ（閲覧者）の投稿として作成（リクエストされた値をもとに作成）
+        $request->user()->user_condition()->create([
+            'temperature' => $request->temperature,
+            'medicine' => $request->medicine,
+            'meal_amount' => $request->meal_amount,
+            'oxygen' => $request->oxygen,
+            'blood_pressure' => $request->blood_pressure,
+        ]);
+
+        // 前のURLへリダイレクトさせる
+        return back();
+    }
 }
