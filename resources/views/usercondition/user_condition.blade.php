@@ -13,6 +13,14 @@
                         {{-- 投稿内容 --}}
                         <p class="mb-0">{!! nl2br(e($user_condition->content)) !!}</p>
                     </div>
+                    <div>
+                        @if (Auth::id() == $user_condition->user_id)
+                            {{-- 投稿削除ボタンのフォーム --}}
+                            {!! Form::open(['route' => ['user_condition.destroy', $user_condition->id], 'method' => 'delete']) !!}
+                                {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
+                            {!! Form::close() !!}
+                        @endif
+                    </div>
                 </div>
             </li>
         @endforeach
