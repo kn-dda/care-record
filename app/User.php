@@ -36,4 +36,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    
+    public function user_condition()
+    {
+        return $this->hasMany(UserCondition::class);
+    }
+    
+    public function loadRelationshipCounts()
+    {
+        $this->loadCount('user_condition');
+    }
 }
