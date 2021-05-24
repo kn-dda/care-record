@@ -8,12 +8,15 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
+    /*
+    //RegisterControllerにも同じコーディングあり
     User::create([
         'name' => $data['name'],
         'email' => $data['email'],
         'birthday' => $data['birthday'],
         'password' => Hash::make($data['password']),
     ]);
+    */
         
     use Notifiable;
 
