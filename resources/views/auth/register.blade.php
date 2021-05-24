@@ -18,6 +18,11 @@
                     {!! Form::label('email', 'Email') !!}
                     {!! Form::email('email', null, ['class' => 'form-control']) !!}
                 </div>
+                
+                <div class="form-group">
+                    {!! Form::label('birthday', 'Birthday') !!}
+                    {!! Form::birthday('birthday', null, ['class' => 'form-control']) !!}
+                </div>
 
                 <div class="form-group">
                     {!! Form::label('password', 'Password') !!}
