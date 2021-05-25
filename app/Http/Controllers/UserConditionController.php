@@ -21,7 +21,7 @@ class UserConditionController extends Controller
             
                 // ユーザの投稿の一覧を作成日時の降順で取得
                 // このユーザの投稿のみを表示
-                $user_conditions = $user->user_conditions()->orderBy('created_at', 'desc')->paginate(10);
+                $user_conditions = $user->user_condition()->orderBy('created_at', 'desc')->paginate(10); // user_conditions()を単数形に変更
 
                 $data = [
                     'user' => $user,
