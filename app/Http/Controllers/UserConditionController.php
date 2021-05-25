@@ -21,24 +21,13 @@ class UserConditionController extends Controller
             
                 // ユーザの投稿の一覧を作成日時の降順で取得
                 // このユーザの投稿のみを表示
-                $user_condition = $user->user_condition()->orderBy('created_at', 'desc')->paginate(10);
+                $user_conditions = $user->user_conditions()->orderBy('created_at', 'desc')->paginate(10);
 
                 $data = [
                     'user' => $user,
-                    'user_condition' => $user_condition,
+                    'user_conditions' => $user_conditions,
                 ];
         }
-        
-        //}        
-        
-        /*
-        // DB内にレコードが存在していない場合
-        if (DB::table('user_condition')->where('id', $data)->doesntExist()) 
-        {
-            // 前のURLへリダイレクトさせる
-            return back(); 
-        }
-        */
         
         // Welcomeビューでそれらを表示
         return view('welcome', $data);
@@ -58,7 +47,7 @@ class UserConditionController extends Controller
         ]);
 
         // 認証済みユーザ（閲覧者）の投稿として作成（リクエストされた値をもとに作成）
-        $request->user()->user_condition()->create([
+        $request->user()->user_conditions()->create([
             'temperature' => $request->temperature,
             'medicine' => $request->medicine,
             'meal_amount' => $request->meal_amount,

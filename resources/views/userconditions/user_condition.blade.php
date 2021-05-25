@@ -1,8 +1,8 @@
 {{-- user_conditionの一覧を表示する共通のView --}}
 
-@if (count($user_condition) > 0)
+@if (count($user_conditions) > 0)
     <ul class="list-unstyled">
-        @foreach ($user_condition as $user_condition)
+        @foreach ($user_conditions as $user_condition)
             <li class="media mb-3">
                 <div class="media-body">
                     <div>
@@ -17,7 +17,7 @@
                     <div>
                         @if (Auth::id() == $user_condition->user_id)
                             {{-- 投稿削除ボタンのフォーム --}}
-                            {!! Form::open(['route' => ['user_condition.destroy', $user_condition->id], 'method' => 'delete']) !!}
+                            {!! Form::open(['route' => ['user_conditions.destroy', $user_condition->id], 'method' => 'delete']) !!}
                                 {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
                             {!! Form::close() !!}
                         @endif
@@ -27,5 +27,5 @@
         @endforeach
     </ul>
     {{-- ページネーションのリンク --}}
-    {{ $user_condition->links() }}
+    {{ $user_conditions->links() }}
 @endif

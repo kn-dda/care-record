@@ -18,12 +18,12 @@ class UsersController extends Controller
         $user->loadRelationshipCounts();
 
         // ユーザの投稿一覧を作成日時の降順で取得
-        $user_condition = $user->user_condition()->orderBy('created_at', 'desc')->paginate(10);
+        $user_conditions = $user->user_conditions()->orderBy('created_at', 'desc')->paginate(10);
 
         // ユーザ詳細ビューでそれらを表示
         return view('users.show', [
             'user' => $user,
-            'user_condition' => $user_condition,
+            'user_conditions' => $user_conditions,
         ]);
     }
 }

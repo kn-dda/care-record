@@ -54,6 +54,6 @@ class User extends Authenticatable
     
     public function loadRelationshipCounts()
     {
-        $this->loadCount('user_condition');
+        $this->loadCount('user_conditions');
     }
 }
