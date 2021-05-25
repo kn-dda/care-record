@@ -73,4 +73,10 @@ class RegisterController extends Controller
             'password' => Hash::make($data['password']),
         ]);
     }
+    
+    public function index()
+    {
+        // MyPageで表示
+        return view('mypage');
+    }
 }

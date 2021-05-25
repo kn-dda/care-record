@@ -11,8 +11,14 @@
 |
 */
 
-// UserConditionsController@indexを経由してトップページを表示
+// UserConditionController@indexを経由してトップページを表示
 Route::get('/', 'UserConditionController@index');
+
+// LoginController@indexを経由してマイページを表示
+Route::get('mypage', 'LoginController');
+
+// RegisterController@indexを経由してマイページを表示
+Route::get('mypage', 'RegisterController');
 
 // ユーザ登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
