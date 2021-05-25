@@ -34,6 +34,13 @@ class UserConditionController extends Controller
 
     }
     
+    // mypageを表示
+    public function show()
+    {
+        // MyPageで表示
+        return view('mypage');
+    }
+    
     // create メソッドを使ってUserConditionを保存
     public function store(Request $request)
     {

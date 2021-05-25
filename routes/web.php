@@ -14,11 +14,8 @@
 // UserConditionController@indexを経由してトップページを表示
 Route::get('/', 'UserConditionController@index');
 
-// LoginController@indexを経由してマイページを表示
-Route::get('userconditions/mypage', 'Auth\LoginController@index');
-
-// RegisterController@indexを経由してマイページを表示
-Route::get('userconditions/mypage', 'Auth\RegisterController@index');
+// UserConditionController@showを経由してマイページを表示
+Route::get('mypage', 'Auth\UserConditionController@show');
 
 // 検索してできてた参考コード候補 Route::get('/',[PageController::class,'index']);
 
