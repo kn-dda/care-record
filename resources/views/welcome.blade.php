@@ -22,7 +22,7 @@
                 {!! link_to_route('signup.get', 'Sign up now!', [], ['class' => 'btn btn-lg btn-primary']) !!}
                 {{-- ログインページへのリンク --}}
                 {!! link_to_route('login', 'Login', [], ['class' => 'nav-link']) !!}
-                    {{-- ↑センターではなく、右上に移動する予定。画面遷移優先のため、後ほど修正 --}}、
+                    {{-- ↑センターではなく、右上に移動する予定。画面遷移優先のため、後ほど修正 --}}
             </div>
         </div>
     @endif
