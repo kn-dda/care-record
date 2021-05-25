@@ -26,4 +26,5 @@ class UsersController extends Controller
             'user_conditions' => $user_conditions,
         ]);
     }
+    
 }

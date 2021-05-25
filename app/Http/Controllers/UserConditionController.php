@@ -73,4 +73,5 @@ class UserConditionController extends Controller
         // 前のURLへリダイレクトさせる
         return back();
     }
+    
 }

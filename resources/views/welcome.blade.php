@@ -6,12 +6,6 @@
     @if (Auth::check())
         <div class="row">
             <div class="col-sm-8">
-                {{-- 投稿フォーム --}}
-                {{-- @include('usercondition.form') --}}
-                    {{-- ↑トップページのPreview確認のためコメントアウト --}}
-                {{-- 投稿一覧 --}}
-                {{-- @include('usercondition.user_condition') --}}
-                    {{-- ↑トップページのPreview確認のためコメントアウト --}}
             </div>
         </div>
     @else
