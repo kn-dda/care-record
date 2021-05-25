@@ -13,7 +13,7 @@ class CreateUserConditionTable extends Migration
      */
     public function up()
     {
-        Schema::create('user_condition', function (Blueprint $table) {
+        Schema::create('user_conditions', function (Blueprint $table) { // テーブル名を複数形に変更
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->dateTime('wake');
@@ -36,6 +36,6 @@ class CreateUserConditionTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('user_condition');
+        Schema::dropIfExists('user_conditions'); // テーブル名を複数形に変更
     }
 }
