@@ -13,6 +13,7 @@ class UserCondition extends Model
 
     // 参照させたいSQLテーブル名を指定
     protected $table = 'user_conditions';
+    
     /**
      * この投稿を所有するユーザ。（ Userモデルとの関係を定義）
      */
