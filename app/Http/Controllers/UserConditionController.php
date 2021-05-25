@@ -25,11 +25,11 @@ class UserConditionController extends Controller
 
                 $data = [
                     'user' => $user,
-                    'user_condition' => $user_conditions, // 左辺を単数形に変更
+                    'user_conditions' => $user_conditions, // 左辺を複数形に変更
                 ];
         }
         
-        // Welcomeビューでそれらを表示
+        // user_conditionでそれらを表示
         return view('welcome', $data);
 
     }
@@ -37,8 +37,6 @@ class UserConditionController extends Controller
     // mypageを表示
     public function show()
     {
-        //
-        
         // MyPageで表示
         return view('userconditions.mypage');
     }

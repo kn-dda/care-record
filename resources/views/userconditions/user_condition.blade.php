@@ -1,15 +1,13 @@
 {{-- user_conditionの一覧を表示する共通のView：MyPageの後に遷移--}}
+@extends('layouts.app')
+
+@section('content')
 
 @if (count($user_conditions) > 0)
     <ul class="list-unstyled">
         @foreach ($user_conditions as $user_condition)
             <li class="media mb-3">
                 <div class="media-body">
-                    {{-- <div> --}}
-                        {{-- 投稿の所有者のユーザ詳細ページへのリンク --}}
-                        {{-- !! link_to_route('users.show', $user_condition->user->name, ['user' => $user_condition->user->id]) !!} --}}
-                        {{-- <span class="text-muted">posted at {{ $user_condition->created_at }}</span> --}}
-                    {{-- </div>--}}
                     <div>
                         {{-- 投稿内容 --}}
                         <p class="mb-0">{!! nl2br(e($user_condition->content)) !!}</p>
@@ -29,3 +27,5 @@
     {{-- ページネーションのリンク --}}
     {{ $user_conditions->links() }}
 @endif
+
+@endsection
