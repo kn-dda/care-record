@@ -28,6 +28,12 @@ class LoginController extends Controller
      */
     //protected $redirectTo = RouteServiceProvider::HOME;
     protected $redirectTo = '/mypage';
+    
+    public function index()
+    {
+        // MyPageで表示
+        return view('mypage');
+    }
 
     /**
      * Create a new controller instance.
@@ -39,10 +45,5 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
     
-    public function index()
-    {
-        // MyPageで表示
-        return view('mypage');
-    }
     
 }

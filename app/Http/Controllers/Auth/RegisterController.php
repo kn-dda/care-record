@@ -31,6 +31,12 @@ class RegisterController extends Controller
      */
     //protected $redirectTo = RouteServiceProvider::HOME;
     protected $redirectTo = '/mypage';
+    
+    public function index()
+    {
+        // MyPageで表示
+        return view('mypage');
+    }
 
     /**
      * Create a new controller instance.
@@ -74,9 +80,4 @@ class RegisterController extends Controller
         ]);
     }
     
-    public function index()
-    {
-        // MyPageで表示
-        return view('mypage');
-    }
 }

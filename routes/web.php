@@ -15,10 +15,12 @@
 Route::get('/', 'UserConditionController@index');
 
 // LoginController@indexを経由してマイページを表示
-Route::get('mypage', 'Auth\LoginController@index');
+Route::get('userconditions/mypage', 'Auth\LoginController@index');
 
 // RegisterController@indexを経由してマイページを表示
-Route::get('mypage', 'Auth\RegisterController@index');
+Route::get('userconditions/mypage', 'Auth\RegisterController@index');
+
+// 検索してできてた参考コード候補 Route::get('/',[PageController::class,'index']);
 
 // ユーザ登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
