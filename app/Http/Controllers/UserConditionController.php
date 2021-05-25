@@ -10,7 +10,8 @@ class UserConditionController extends Controller
     {
         $data = [];
         // DB内にレコードが存在する場合
-        if (DB::table('user_condition')->where('id', $data)->Exists())
+        //if (DB::table('user_condition')->where('id', $data)->Exists())
+        //{
             if (\Auth::check()) // 認証済みの場合
             {
                 // 認証済みユーザを取得
@@ -25,13 +26,16 @@ class UserConditionController extends Controller
                         'user_condition' => $user_condition,
                 ];
             }
-                
+        //}        
+        
+        /*
         // DB内にレコードが存在していない場合
         if (DB::table('user_condition')->where('id', $data)->doesntExist()) 
         {
             // 前のURLへリダイレクトさせる
             return back(); 
         }
+        */
         
         // Welcomeビューでそれらを表示
         return view('welcome', $data);
