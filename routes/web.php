@@ -15,7 +15,7 @@
 Route::get('/', 'UserConditionController@index');
 
 // UserConditionController@showを経由してマイページを表示
-Route::get('mypage', 'Auth\UserConditionController@show');
+Route::get('mypage', 'UserConditionController@show');
 
 // 検索してできてた参考コード候補 Route::get('/',[PageController::class,'index']);
 

@@ -37,8 +37,10 @@ class UserConditionController extends Controller
     // mypageを表示
     public function show()
     {
+        //
+        
         // MyPageで表示
-        return view('mypage');
+        return view('userconditions.mypage');
     }
     
     // create メソッドを使ってUserConditionを保存
