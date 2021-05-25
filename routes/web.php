@@ -25,5 +25,5 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 // 認証付きルーティング（投稿）
 Route::group(['middleware' => ['auth']], function () {
-    Route::resource('user_conditions', 'UserConditionController', ['only' => ['store', 'destroy']]);
+    Route::resource('user_condition', 'UserConditionController', ['only' => ['store', 'destroy']]);
 });

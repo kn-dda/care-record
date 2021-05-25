@@ -25,7 +25,7 @@ class UserConditionController extends Controller
 
                 $data = [
                     'user' => $user,
-                    'user_conditions' => $user_conditions,
+                    'user_condition' => $user_conditions, // 左辺を単数形に変更
                 ];
         }
         
@@ -47,7 +47,7 @@ class UserConditionController extends Controller
         ]);
 
         // 認証済みユーザ（閲覧者）の投稿として作成（リクエストされた値をもとに作成）
-        $request->user()->user_conditions()->create([
+        $request->user()->user_conditions()->create([ 
             'temperature' => $request->temperature,
             'medicine' => $request->medicine,
             'meal_amount' => $request->meal_amount,
