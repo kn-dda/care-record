@@ -12,14 +12,18 @@ class UserConditionController extends Controller
         if (\Auth::check()) { // 認証済みの場合
             // 認証済みユーザを取得
             $user = \Auth::user();
-            // ユーザの投稿の一覧を作成日時の降順で取得
-            // （後のChapterで他ユーザの投稿も取得するように変更しますが、現時点ではこのユーザの投稿のみ取得します）
-            $user_condition = $user->user_condition()->orderBy('created_at', 'desc')->paginate(10);
+            
+            // レコード存在の判定
+            if (DB::table('user_condition')->where('temperature', 'medicine', 'meal_amount', 'ozygen', 'blood_pressure')->exists()) { // 0525追加
+                // ユーザの投稿の一覧を作成日時の降順で取得
+                // このユーザの投稿のみを表示
+                $user_condition = $user->user_condition()->orderBy('created_at', 'desc')->paginate(10);
 
-            $data = [
-                'user' => $user,
-                'user_condition' => $user_condition,
-            ];
+                $data = [
+                    'user' => $user,
+                    'user_condition' => $user_condition,
+                ];
+            }
         }
 
         // Welcomeビューでそれらを表示
