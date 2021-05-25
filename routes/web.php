@@ -15,10 +15,10 @@
 Route::get('/', 'UserConditionController@index');
 
 // LoginController@indexを経由してマイページを表示
-Route::get('mypage', 'LoginController');
+Route::get('mypage', 'LoginController@index');
 
 // RegisterController@indexを経由してマイページを表示
-Route::get('mypage', 'RegisterController');
+Route::get('mypage', 'RegisterController@index');
 
 // ユーザ登録
 Route::get('signup', 'Auth\RegisterController@showRegistrationForm')->name('signup.get');
