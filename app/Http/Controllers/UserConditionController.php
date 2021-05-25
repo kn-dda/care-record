@@ -4,16 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\UserCondition; // 追加
+
 class UserConditionController extends Controller
 {
     public function index()
     {
         $data = [];
-        // DB内にレコードが存在する場合
-        //if (DB::table('user_condition')->where('id', $data)->Exists())
-        //{
-            if (\Auth::check()) // 認証済みの場合
-            {
+        if (\Auth::check()) // 認証済みの場合
+        {
+            // DB内のレコード存在確認
+            if(UserCondition::where('user_id', \Auth::user()->id)->exists());
+                
                 // 認証済みユーザを取得
                 $user = \Auth::user();
             
@@ -22,10 +24,11 @@ class UserConditionController extends Controller
                 $user_condition = $user->user_condition()->orderBy('created_at', 'desc')->paginate(10);
 
                 $data = [
-                        'user' => $user,
-                        'user_condition' => $user_condition,
+                    'user' => $user,
+                    'user_condition' => $user_condition,
                 ];
-            }
+        }
+        
         //}        
         
         /*
