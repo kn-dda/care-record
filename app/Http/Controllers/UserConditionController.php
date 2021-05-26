@@ -21,7 +21,7 @@ class UserConditionController extends Controller
             
                 // ユーザの投稿の一覧を作成日時の降順で取得
                 // このユーザの投稿のみを表示
-                $user_conditions = $user->user_condition()->orderBy('created_at', 'desc')->paginate(10); // user_conditions()を単数形に変更
+                $user_conditions = $user->user_condition()->orderBy('created_at', 'desc')->paginate(10); // user_condition()を複数形に変更
 
                 //$data = [
                     //'user' => $user,
@@ -42,8 +42,19 @@ class UserConditionController extends Controller
     // mypageを表示
     public function show()
     {
+        // 認証済みユーザを取得
+        $user = \Auth::user();
+        
+        // ユーザの投稿の一覧を作成日時の降順で取得
+        // このユーザの投稿のみを表示
+        $user_conditions = $user->user_condition()->orderBy('created_at', 'desc')->paginate(10);
+                
         // MyPageで表示
-        return view('userconditions.mypage');
+        return view('userconditions.mypage', [
+            // 変数を定義
+            'user' => $user,
+            'user_conditions' => $user_conditions,
+        ]);
     }
     
     // create メソッドを使ってUserConditionを保存
