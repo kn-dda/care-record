@@ -1,6 +1,14 @@
 {{-- ログイン後：マイページのView --}}
 
-<h1>My Page</h1> {{-- 試し --}}
+<div class="text-center">
+    <h1>My Page</h1>
+        <div class="center">
+            {{-- 新規データ入力 --}}
+            @include('userconditions.form')
+        </div>
+</div>
+
+{{--  --}}
 
 @extends('layouts.app')
 
