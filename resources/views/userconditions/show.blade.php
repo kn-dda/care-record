@@ -1,4 +1,7 @@
 {{-- ログイン後：マイページのView --}}
+
+<h1>My Page</h1> {{-- 試し --}}
+
 @extends('layouts.app')
 
 @section('content')
