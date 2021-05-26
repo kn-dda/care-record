@@ -1,37 +1,28 @@
-{{-- 体調記録の詳細を表示 --}}
+{{-- ログイン後：マイページのView --}}
 @extends('layouts.app')
 
 @section('content')
-
-<h1>id = {{ $user_conditions->id }} のメッセージ詳細ページ</h1>
-    <table class="table table-bordered">
-        <tr>
-            <th>id</th>
-            <td>{{ $user_conditions->id }}</td>
-        </tr>
-        <tr>
-            <th>体温</th>
-            <td>{{ $user_conditions->temperature }}</td>
-        </tr>
-        <tr>
-            <th>薬</th>
-            <td>{{ $user_conditions->medicine }}</td>
-        </tr>
-        <tr>
-            <th>食事量</th>
-            <td>{{ $user_conditions->meal_amount }}</td>
-        </tr>
-        <tr>
-            <th>酸素濃度</th>
-            <td>{{ $user_conditions->oxygen }}</td>
-        </tr>
-        <tr>
-            <th>血圧</th>
-            <td>{{ $user_conditions->blood_pressure }}</td>
-        </tr>
-    </table>
+    {{-- @if (Auth::check()) --}}
+    <div class="text-center">
+        <h1>My Page</h1>
+    </div>
+    <div class="row">
+        <div class="col-sm-6 offset-sm3">
+            {{-- 過去の記録一覧 --}}
+            @include('userconditions.user_condition')
+            {{-- 新規データ入力 --}}
+            @include('userconditions.form')
+        </div>
+    </div>
     
-    {{-- メッセージ編集ページへのリンク --}}
-    {{-- {!! link_to_route('user_conditions.edit', 'このメッセージを編集', ['user_condition' => $user_conditions->id], ['class' => 'btn btn-light']) !!} --}}
-
+    {{-- @else
+        <div class="center jumbotron">
+            <div class="text-center">
+                <h1>CareManager</h1> --}}
+                {{-- ユーザ登録ページへのリンク --}}
+                {{-- {!! link_to_route('signup.get', 'Sign up now!', [], ['class' => 'btn btn-lg btn-primary']) !!} --}}
+            {{-- </div>
+        </div>
+    @endif --}}
+    
 @endsection
