@@ -9,10 +9,13 @@ use App\User;
 class UsersController extends Controller
 {
     // MyPageを表示する
-    public function show($id)
+    public function show()
     {
         // idの値でユーザを検索して取得
-        $user = User::findOrFail($id);
+        //$user = User::findOrFail($id);
+        
+        // 認証済みユーザを取得
+        $user = \Auth::user();
 
         // 関係するモデルの件数をロード
         //$user->loadRelationshipCounts();
@@ -22,6 +25,7 @@ class UsersController extends Controller
 
         // それらを表示
         return view('userconditions.show', [
+            // 変数を定義
             'user' => $user,
             'user_conditions' => $user_conditions,
         ]);

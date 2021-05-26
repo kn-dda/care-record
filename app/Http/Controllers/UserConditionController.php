@@ -8,6 +8,7 @@ use App\UserCondition; // 追加
 
 class UserConditionController extends Controller
 {
+    //user_conditionの詳細表示
     public function index()
     {
         //$data = [];
@@ -29,7 +30,7 @@ class UserConditionController extends Controller
                 //];
         
         // user_conditionでそれらを表示
-        //return view('userconditions.user_condition', [
+        // return view('userconditions.user_condition', [
         return view('userconditions.user_condition', [
             // 変数を定義
             'user' => $user,
@@ -40,7 +41,7 @@ class UserConditionController extends Controller
 
     }
     
-    
+    /*
     // mypageを表示
     public function show()
     {
@@ -52,12 +53,13 @@ class UserConditionController extends Controller
         //$user_conditions = $user->user_condition()->orderBy('created_at', 'desc')->paginate(10);
                 
         // MyPageで表示
-        return view('userconditions.mypage', [
+        return view('userconditions.show', [
             // 変数を定義
             'user' => $user,
             'user_conditions' => $user_conditions,
         ]);
     }
+    */
     
     
     // create メソッドを使ってUserConditionを保存

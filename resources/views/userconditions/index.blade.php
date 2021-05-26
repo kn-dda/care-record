@@ -3,7 +3,7 @@
 
 @section('content')
 
-<h1>id = {{ $user_conditions->id }} のメッセージ詳細ページ</h1>
+<h1>id = {{ $user_conditions->id }} の記録詳細ページ</h1>
     <table class="table table-bordered">
         <tr>
             <th>id</th>

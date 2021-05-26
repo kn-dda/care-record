@@ -41,7 +41,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 // 認証付きルーティング（投稿）
 Route::group(['middleware' => ['auth']], function () {
     //UsersControllerを経由してMyPageを表示
-    Route::resource('user', 'UsersController', ['only' => ['show']]);
+    Route::resource('users', 'UsersController', ['only' => ['show']]);
 });
 
 Route::resource('user_condition', 'UserConditionController', ['only' => ['store', 'destroy']]);
