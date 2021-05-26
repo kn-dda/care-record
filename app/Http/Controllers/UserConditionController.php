@@ -10,7 +10,7 @@ class UserConditionController extends Controller
 {
     public function index()
     {
-        $data = [];
+        //$data = [];
         if (\Auth::check()) // 認証済みの場合
         {
             // DB内のレコード存在確認
@@ -23,14 +23,19 @@ class UserConditionController extends Controller
                 // このユーザの投稿のみを表示
                 $user_conditions = $user->user_condition()->orderBy('created_at', 'desc')->paginate(10); // user_conditions()を単数形に変更
 
-                $data = [
-                    'user' => $user,
-                    'user_conditions' => $user_conditions, // 左辺を複数形に変更
-                ];
-        }
+                //$data = [
+                    //'user' => $user,
+                    //'user_conditions' => $user_conditions, // 左辺を複数形に変更
+                //];
         
         // user_conditionでそれらを表示
-        return view('welcome', $data);
+        return view('userconditions.user_condition', [
+            // 変数を定義
+            'user' => $user,
+            'user_conditions' => $user_conditions,
+        ]); 
+        
+        }
 
     }
     

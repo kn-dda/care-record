@@ -11,8 +11,8 @@
 |
 */
 
-// UserConditionController@indexを経由してWelcomeページを表示
-Route::get('/', 'UserConditionController@index');
+// UserConditionController@indexを経由して記録一覧ページを表示
+Route::get('user_condition', 'UserConditionController@index');
 
 // UserConditionController@showを経由してマイページを表示
 Route::get('mypage', 'UserConditionController@show');

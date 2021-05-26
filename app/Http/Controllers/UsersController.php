@@ -21,10 +21,10 @@ class UsersController extends Controller
         $user_conditions = $user->user_conditions()->orderBy('created_at', 'desc')->paginate(10);
 
         // ユーザ詳細ビューでそれらを表示
-        return view('users.show', [
-            'user' => $user,
-            'user_conditions' => $user_conditions,
-        ]);
+        //return view('users.show', [
+            //'user' => $user,
+            //'user_conditions' => $user_conditions,
+        //]);
     }
     
 }

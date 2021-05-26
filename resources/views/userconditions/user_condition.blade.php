@@ -3,6 +3,7 @@
 
 @section('content')
 
+{{-- user_conditionが１件以上存在する場合 --}}
 @if (count($user_conditions) > 0)
     <ul class="list-unstyled">
         @foreach ($user_conditions as $user_condition)
