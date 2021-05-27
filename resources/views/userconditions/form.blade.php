@@ -1,4 +1,4 @@
-{{-- 健康状態の新規登録フォーム --}}
+{{-- 記録新規作成フォーム --}}
 {{-- 時間を設定する際には、自由入力を防ぐためにtype="time"を使用する --}}
 
 @extends('layouts.app')
@@ -14,8 +14,12 @@
         
         {!! Form::open(['route' => 'user_condition.store']) !!}
             <div class="form-group">
+                {!! Form::label('wake', '起床時刻') !!}
+                {!! Form::text('wake', null, ['class' => 'form-control']) !!}
+            </div>
+            <div class="form-group">
                 {!! Form::label('temperature', '体温') !!}
-                {!! Form::text('tenperature', null, ['class' => 'form-control']) !!}
+                {!! Form::text('temperature', null, ['class' => 'form-control']) !!}
             </div>
             <div class="form-group">
                 {!! Form::label('medicine', '薬') !!}

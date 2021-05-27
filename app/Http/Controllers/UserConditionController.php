@@ -31,7 +31,7 @@ class UserConditionController extends Controller
         
         // user_conditionでそれらを表示
         // return view('userconditions.user_condition', [
-        return view('userconditions.user_condition', [
+        return view('userconditions.index', [
             // 変数を定義
             'user' => $user,
             'user_conditions' => $user_conditions,
@@ -67,6 +67,7 @@ class UserConditionController extends Controller
     {
         // バリデーション
         $request->validate([
+            'wake' => 'required|max:255',
             'temperature' => 'required|max:255',
             'medicine' => 'required|max:255',
             'meal_amount' => 'required|max:255',
@@ -75,7 +76,8 @@ class UserConditionController extends Controller
         ]);
 
         // 認証済みユーザ（閲覧者）の投稿として作成（リクエストされた値をもとに作成）
-        $request->user()->user_conditions()->create([ 
+        $request->user()->user_condition()->create([ // user_condition()を複数から単数形に変更
+            'wake' => $wake->wake,
             'temperature' => $request->temperature,
             'medicine' => $request->medicine,
             'meal_amount' => $request->meal_amount,
@@ -83,8 +85,8 @@ class UserConditionController extends Controller
             'blood_pressure' => $request->blood_pressure,
         ]);
 
-        // 前のURLへリダイレクトさせる
-        return back();
+        // Viewを返さずに自動でページを移動
+        return redirect('/');
     }
     
     // 投稿の削除
