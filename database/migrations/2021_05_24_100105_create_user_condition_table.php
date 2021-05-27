@@ -16,7 +16,7 @@ class CreateUserConditionTable extends Migration
         Schema::create('user_conditions', function (Blueprint $table) { // テーブル名を複数形に変更
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
-            $table->dateTime('wake');
+            $table->string('wake');
             $table->string('temperature');
             $table->string('medicine');
             $table->string('meal_amount');

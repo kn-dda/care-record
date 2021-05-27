@@ -42,6 +42,21 @@ class UserConditionController extends Controller
     }
     
     /*
+    // 新規データを作成する
+    public function create()
+    {
+        $user_conditions = new UserCondition;
+
+        // 記録作成ビューを表示
+        //return view('userconditions.form', [
+            // 変数を定義
+            //'user' => $user,
+            //'user_conditions' => $user_conditions,
+        //]);
+    }
+    */
+    
+    /*
     // mypageを表示
     public function show()
     {
@@ -74,10 +89,10 @@ class UserConditionController extends Controller
             'oxygen' => 'required|max:255',
             'blood_pressure' => 'required|max:255',
         ]);
-
+        
         // 認証済みユーザ（閲覧者）の投稿として作成（リクエストされた値をもとに作成）
-        $request->user()->user_condition()->create([ // user_condition()を複数から単数形に変更
-            'wake' => $wake->wake,
+        $request->user()->user_conditions()->create([ 
+            'wake' => $request->wake,
             'temperature' => $request->temperature,
             'medicine' => $request->medicine,
             'meal_amount' => $request->meal_amount,
@@ -85,8 +100,8 @@ class UserConditionController extends Controller
             'blood_pressure' => $request->blood_pressure,
         ]);
 
-        // Viewを返さずに自動でページを移動
-        return redirect('/');
+        // 前のURLへリダイレクトさせる
+        return back();
     }
     
     // 投稿の削除
