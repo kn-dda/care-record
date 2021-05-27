@@ -1,4 +1,11 @@
 {{-- user_conditionの一覧を表示する共通のView：MyPageの後に遷移--}}
+
+<div class="text-center">
+    <h1>過去の登録一覧</h1>
+</div>
+
+{{--  --}}
+
 @extends('layouts.app')
 
 @section('content')
