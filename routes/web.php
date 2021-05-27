@@ -45,6 +45,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 Route::group(['middleware' => ['auth']], function () {
     //UsersControllerを経由してMyPageを表示
     //Route::resource('users', 'UsersController', ['only' => ['show']]);
+    //Route::
 });
 
 Route::resource('user_condition', 'UserConditionController', ['only' => ['store', 'destroy']]);

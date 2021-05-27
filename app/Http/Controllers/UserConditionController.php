@@ -29,9 +29,8 @@ class UserConditionController extends Controller
                     //'user_conditions' => $user_conditions, // 左辺を複数形に変更
                 //];
         
-        // user_conditionでそれらを表示
-        // return view('userconditions.user_condition', [
-        return view('userconditions.index', [
+        // showで投稿を一覧表示
+        return view('userconditions.show', [
             // 変数を定義
             'user' => $user,
             'user_conditions' => $user_conditions,
