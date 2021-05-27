@@ -5,41 +5,41 @@
 
 @section('content')
 
-<div class="text-center">
-    <h1>新規登録</h1>
-</div>
+<div class="center jumbotron">
+    <h3>-- 今日の体調を記録する --</h3>
+    <br>
 
-<div class="row">
-    <div class="col-sm-6 offset-sm-3">
+    <div class="row">
+        <div class="col-sm-6 offset-sm-3">
         
-        {!! Form::open(['route' => 'user_condition.store']) !!}
-            <div class="form-group">
-                {!! Form::label('wake', '起床時刻') !!}
-                {!! Form::text('wake', null, ['class' => 'form-control']) !!}
-            </div>
-            <div class="form-group">
-                {!! Form::label('temperature', '体温') !!}
-                {!! Form::text('temperature', null, ['class' => 'form-control']) !!}
-            </div>
-            <div class="form-group">
-                {!! Form::label('medicine', '薬') !!}
-                {!! Form::text('medicine', null, ['class' => 'form-control']) !!}
-            </div>
-            <div class="form-group">
-                {!! Form::label('meal_amount', '食事量') !!}
-                {!! Form::text('meal_amount', null, ['class' => 'form-control']) !!}
-            </div>
-            <div class="form-group">
-                {!! Form::label('oxygen', '酸素濃度') !!}
-                {!! Form::text('oxygen', null, ['class' => 'form-control']) !!}
-            </div>
-            <div class="form-group">
-                {!! Form::label('blood_pressure', '血圧') !!}
-                {!! Form::text('blood_pressure', null, ['class' => 'form-control']) !!}
-            </div>
-            {!! Form::submit('Add new condition', ['class' => 'btn btn-primary btn-block']) !!}
-        {!! Form::close() !!}
-        
+            {!! Form::open(['route' => 'user_condition.store']) !!}
+                <div class="form-group row">
+                    {!! Form::label('wake', '●起床時刻') !!}
+                    {!! Form::text('wake', null, ['class' => 'form-control']) !!}
+                </div>
+                <div class="form-group row">
+                    {!! Form::label('temperature', '●体温') !!}
+                    {!! Form::text('temperature', null, ['class' => 'form-control']) !!}
+                </div>
+                <div class="form-group row">
+                    {!! Form::label('medicine', '●薬') !!}
+                    {!! Form::text('medicine', null, ['class' => 'form-control']) !!}
+                </div>
+                <div class="form-group row">
+                    {!! Form::label('meal_amount', '●食事量') !!}
+                    {!! Form::text('meal_amount', null, ['class' => 'form-control']) !!}
+                </div>
+                <div class="form-group row">
+                    {!! Form::label('oxygen', '●酸素濃度') !!}
+                    {!! Form::text('oxygen', null, ['class' => 'form-control']) !!}
+                </div>
+                <div class="form-group row">
+                    {!! Form::label('blood_pressure', '●血圧') !!}
+                    {!! Form::text('blood_pressure', null, ['class' => 'form-control']) !!}
+                </div>
+                {!! Form::submit('記録保存', ['class' => 'btn btn-success btn-block']) !!}
+            {!! Form::close() !!}
+        </div>
     </div>
 </div>
 

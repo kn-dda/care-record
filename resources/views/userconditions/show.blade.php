@@ -2,14 +2,23 @@
 
 @if (Auth::check())
 <div class="text-center">
-    <h1>My Page</h1>
+    <br>
+    <h3>マイページ</h3>
+        <hr width="700">
+        <hr width="500">
+        <hr width="300">
         <div class="center">
             {{-- 新規データ入力 --}}
             @include('userconditions.form')
             {{-- データの詳細一覧表示 --}}
             @include('userconditions.index')
+            <br>
+            <hr width="700">
+            <hr width="500">
+            <hr width="300">
+            <br>
             {{-- ログアウトへのリンク --}}
-            <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout') !!}</li>
+            {!! link_to_route('logout.get', 'ログアウト', [], ['class' => 'btn btn-lg btn-success']) !!}
         </div>
 </div>
 @endif

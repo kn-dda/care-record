@@ -2,13 +2,21 @@
 @if(Auth::check())
 
     @if (count($user_conditions) > 0)
+    
 <div class="text-center">
-    <h1>過去の登録詳細一覧（修正中）</h1>
+    <br>
+    <hr width="700">
+    <h3>-- 過去の記録一覧 --</h3>
+    <br>
+    <br>
+    <style>
+        body {margin:45px}
+    </style>
     <table class="table table-striped">
         {{-- {!! link_to_route('userconditions.show', $user_conditions->id ['user_condition' => $user_conditions->id]) !!} --}}
         <thead>
             <tr>
-                <th>id</th>
+                <th>ID</th>
                 <th>起床時刻</th>
                 <th>体温</th>
                 <th>薬</th>
@@ -31,6 +39,7 @@
             </tr>
             @endforeach
         </tbody>
+        </div>
     </table>
     @endif
 </div>

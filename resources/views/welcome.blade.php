@@ -12,11 +12,10 @@
         <div class="center jumbotron">
             <div class="text-center">
                 <h1>CareManager</h1>
-                {{-- ユーザ登録ページへのリンク --}}
-                {!! link_to_route('signup.get', 'Sign up now!', [], ['class' => 'btn btn-lg btn-primary']) !!}
-                {{-- ログインページへのリンク --}}
-                {!! link_to_route('login', 'Login', [], ['class' => 'nav-link']) !!}
-                    {{-- ↑センターではなく、右上に移動する予定。画面遷移優先のため、後ほど修正 --}}
+                    {{-- ユーザ登録ページへのリンク --}}
+                    {!! link_to_route('signup.get', '新しく登録', [], ['class' => 'btn btn-lg btn-success']) !!}
+                    {{-- ログインページへのリンク --}}
+                    {!! link_to_route('login', 'ログイン', [], ['class' => 'btn btn-lg btn-success']) !!}
             </div>
         </div>
     @endif
