@@ -11,6 +11,10 @@
             <td>{{ $user_conditions->id }}</td>
         </tr>
         <tr>
+            <th>起床時刻</th>
+            <td>{{ $user_conditions->wake }}</td>
+        </tr>
+        <tr>
             <th>体温</th>
             <td>{{ $user_conditions->temperature }}</td>
         </tr>
@@ -32,7 +36,7 @@
         </tr>
     </table> --}}
 
-{{-- 
+
 @extends('layouts.app')
 
 @section('content')
@@ -44,6 +48,10 @@
             <td>{{ $user_conditions->id }}</td>
         </tr>
         <tr>
+            <th>起床時刻</th>
+            <td>{{ $user_conditions->wake }}</td>
+        </tr>
+        <tr>
             <th>体温</th>
             <td>{{ $user_conditions->temperature }}</td>
         </tr>
@@ -63,9 +71,9 @@
             <th>血圧</th>
             <td>{{ $user_conditions->blood_pressure }}</td>
         </tr>
-    </table> --}}
+    </table>
     
     {{-- メッセージ編集ページへのリンク --}}
     {{-- {!! link_to_route('user_conditions.edit', 'このメッセージを編集', ['user_condition' => $user_conditions->id], ['class' => 'btn btn-light']) !!} --}}
 
-{{-- @endsection --}}
+@endsection

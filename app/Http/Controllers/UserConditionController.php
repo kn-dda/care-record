@@ -80,6 +80,9 @@ class UserConditionController extends Controller
     // create メソッドを使ってUserConditionを保存
     public function store(Request $request)
     {
+        // 認証済みユーザを取得
+        $user = \Auth::user();
+        
         // バリデーション
         $request->validate([
             'wake' => 'required|max:255',
@@ -90,8 +93,11 @@ class UserConditionController extends Controller
             'blood_pressure' => 'required|max:255',
         ]);
         
+        //dd($request);
+        
         // 認証済みユーザ（閲覧者）の投稿として作成（リクエストされた値をもとに作成）
-        $request->user()->user_conditions()->create([ 
+        $request->user()->user_condition()->create([ // Userモデルに合わせてuser_condition() 
+        //$user->user_condition()->create([
             'wake' => $request->wake,
             'temperature' => $request->temperature,
             'medicine' => $request->medicine,
