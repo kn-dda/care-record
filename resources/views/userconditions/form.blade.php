@@ -37,7 +37,7 @@
                 {!! Form::label('blood_pressure', '血圧') !!}
                 {!! Form::text('blood_pressure', null, ['class' => 'form-control']) !!}
             </div>
-            {!! Form::submit('Post', ['class' => 'btn btn-primary btn-block']) !!}
+            {!! Form::submit('Add new condition', ['class' => 'btn btn-primary btn-block']) !!}
         {!! Form::close() !!}
         
     </div>

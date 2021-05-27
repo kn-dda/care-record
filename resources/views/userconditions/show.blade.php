@@ -6,12 +6,10 @@
         <div class="center">
             {{-- 新規データ入力 --}}
             @include('userconditions.form')
-            {{-- {!! link_to_route('userconditions.form', 'Record now!') !!} --}}
             {{-- データの詳細一覧表示 --}}
             @include('userconditions.index')
-            {{-- {!! link_to_route('userconditions.form', 'Record now!') !!} --}}
-            {{-- 新規データ入力ページへのリンク --}}
-            {{-- <p class="mt-2">New data? {!! link_to_route('userconditions.form', 'Record now!') !!}</p> --}}
+            {{-- ログアウトへのリンク --}}
+            <li class="dropdown-item">{!! link_to_route('logout.get', 'Logout') !!}</li>
         </div>
 </div>
 @endif

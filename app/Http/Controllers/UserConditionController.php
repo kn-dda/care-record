@@ -104,6 +104,13 @@ class UserConditionController extends Controller
             'oxygen' => $request->oxygen,
             'blood_pressure' => $request->blood_pressure,
         ]);
+        
+        // user_conditionで投稿の詳細を表示
+        //return view('userconditions.user_condition', [
+            // 変数を定義
+            //'user' => $user,
+            //'user_conditions' => $user_conditions,
+        //]);
 
         // 前のURLへリダイレクトさせる
         return back();
