@@ -9,7 +9,7 @@ use Illuminate\Database\Eloquent\Model;
 class UserCondition extends Model
 {
     //UserConditionのカラム名を入れる
-    protected $fillable = ['wake', 'temperature', 'medicine', 'meal_amount', 'ozygen', 'blood_pressure'];
+    protected $fillable = ['wake', 'temperature', 'medicine', 'meal_amount', 'oxygen', 'blood_pressure'];
 
     // 参照させたいSQLテーブル名を指定
     protected $table = 'user_conditions';

@@ -1,6 +1,29 @@
 {{-- 体調記録の詳細を表示 --}}
 <div class="text-center">
-    <h1>過去の登録詳細一覧</h1>
+    <h1>過去の登録詳細一覧（修正中）</h1>
+    <table class="table table-bordered">
+        <tr>
+            <th>id</th>
+        </tr>
+        <tr>
+            <th>起床時刻</th>
+        </tr>
+        <tr>
+            <th>体温</th>
+        </tr>
+        <tr>
+            <th>薬</th>
+        </tr>
+        <tr>
+            <th>食事量</th>
+        </tr>
+        <tr>
+            <th>酸素濃度</th>
+        </tr>
+        <tr>
+            <th>血圧</th>
+        </tr>
+    </table>
 </div>
 
 {{-- idについてエラーが出るため、試験的にコメントオフ --}}
@@ -37,7 +60,7 @@
     </table> --}}
 
 
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
 @section('content')
 
@@ -71,9 +94,10 @@
             <th>血圧</th>
             <td>{{ $user_conditions->blood_pressure }}</td>
         </tr>
-    </table>
+    </table> --}}
     
     {{-- メッセージ編集ページへのリンク --}}
     {{-- {!! link_to_route('user_conditions.edit', 'このメッセージを編集', ['user_condition' => $user_conditions->id], ['class' => 'btn btn-light']) !!} --}}
 
-@endsection
+{{-- 
+@endsection --}}

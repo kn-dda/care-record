@@ -81,7 +81,7 @@ class UserConditionController extends Controller
     public function store(Request $request)
     {
         // 認証済みユーザを取得
-        $user = \Auth::user();
+        //$user = \Auth::user();
         
         // バリデーション
         $request->validate([

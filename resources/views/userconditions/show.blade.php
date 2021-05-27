@@ -1,5 +1,6 @@
 {{-- ログイン後：マイページのView --}}
 
+@if (Auth::check())
 <div class="text-center">
     <h1>My Page</h1>
         <div class="center">
@@ -13,6 +14,7 @@
             {{-- <p class="mt-2">New data? {!! link_to_route('userconditions.form', 'Record now!') !!}</p> --}}
         </div>
 </div>
+@endif
 
 {{--  --}}
 
