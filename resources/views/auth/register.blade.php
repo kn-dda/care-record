@@ -4,7 +4,10 @@
 
 @section('content')
     <div class="text-center">
-        <h1>Sign up</h1>
+        <br>
+        <h3>はじめまして！</h3>
+        <h4>一緒に体調を整えていきましょう＊</h4>
+        <br>
     </div>
 
     <div class="row">
@@ -12,32 +15,35 @@
 
             {!! Form::open(['route' => 'signup.post']) !!}
                 <div class="form-group">
-                    {!! Form::label('name', 'Name') !!}
+                    {!! Form::label('name', '名前（必須）') !!}
                     {!! Form::text('name', null, ['class' => 'form-control']) !!}
                 </div>
                 
                 <div class="form-group">
-                    {!! Form::label('email', 'Email') !!}
+                    {!! Form::label('email', 'メールアドレス（必須）') !!}
                     {!! Form::email('email', null, ['class' => 'form-control']) !!}
                 </div>
                 
                 <div class="form-group">
-                    {!! Form::label('birthday', 'Birthday') !!}
+                    {!! Form::label('birthday', '誕生日（必須）') !!}
                     {!! Form::text('birthday', null, ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('password', 'Password') !!}
+                    {!! Form::label('password', 'パスワード（必須）') !!}
                     {!! Form::password('password', ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
-                    {!! Form::label('password_confirmation', 'Confirmation') !!}
+                    {!! Form::label('password_confirmation', 'パスワード（確認用）') !!}
                     {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
                 </div>
 
-                {!! Form::submit('Sign up', ['class' => 'btn btn-primary btn-block']) !!}
+                {!! Form::submit('登録', ['class' => 'btn btn-success btn-block']) !!}
             {!! Form::close() !!}
+            <style>
+                body {margin-bottom:50px}
+            </style>
         </div>
     </div>
 @endsection

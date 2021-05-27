@@ -19,6 +19,9 @@
             <br>
             {{-- ログアウトへのリンク --}}
             {!! link_to_route('logout.get', 'ログアウト', [], ['class' => 'btn btn-lg btn-success']) !!}
+            <style>
+                body {margin-bottom:50px}
+            </style>
         </div>
 </div>
 @endif
