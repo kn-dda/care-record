@@ -34,7 +34,7 @@ Route::get('logout', 'Auth\LoginController@logout')->name('logout.get');
 
 // 認証付きルーティング（投稿）
 Route::group(['middleware' => ['auth']], function () {
-    //
+    Route::resource('usre_condition', 'UserConditionController');
 });
 
 // 記録の新規登録を処理(store)、登録データを削除(destroy)

@@ -1,39 +1,39 @@
-{{-- user_conditionの一覧を表示する共通のView：MyPageの後に遷移--}}
-
-<div class="text-center">
-    <h1>過去の登録一覧</h1>
-</div>
-
-{{--  --}}
-
+{{-- user_conditionを編集、削除するページ--}}
 @extends('layouts.app')
 
 @section('content')
 
-{{-- user_conditionが１件以上存在する場合 --}}
-@if (count($user_conditions) > 0)
-    <ul class="list-unstyled">
-        @foreach ($user_conditions as $user_condition)
-            <li class="media mb-3">
-                <div class="media-body">
-                    <div>
-                        {{-- 投稿内容 --}}
-                        <p class="mb-0">{!! nl2br(e($user_condition->content)) !!}</p>
-                    </div>
-                    <div>
-                        {{-- @if (Auth::id() == $user_condition->user_id) --}}
-                            {{-- 投稿削除ボタンのフォーム --}}
-                            {!! Form::open(['route' => ['user_condition.destroy', $user_condition->id], 'method' => 'delete']) !!}
-                                {!! Form::submit('Delete', ['class' => 'btn btn-danger btn-sm']) !!}
-                            {!! Form::close() !!}
-                        {{-- @endif --}}
-                    </div>
+<h1>id: {{ $user_conditions->id }} の記録編集ページ</h1>
+    <div class="row">
+        <div class="col-6">
+            {!! Form::model($user_conditions, ['route' => ['user_condition.update', $user_conditions->id], 'method' => 'put']) !!}
+                <div class="form-group row">
+                    {!! Form::label('wake', '●起床時刻') !!}
+                    {!! Form::time('wake', null, ['class' => 'form-control']) !!}
                 </div>
-            </li>
-        @endforeach
-    </ul>
-    {{-- ページネーションのリンク --}}
-    {{ $user_conditions->links() }}
-@endif
-
+                <div class="form-group row">
+                    {!! Form::label('temperature', '●体温') !!}
+                    {!! Form::text('temperature', null, ['class' => 'form-control']) !!}
+                </div>
+                <div class="form-group row">
+                    {!! Form::label('medicine', '●薬') !!}
+                    {!! Form::text('medicine', null, ['class' => 'form-control']) !!}
+                </div>
+                <div class="form-group row">
+                    {!! Form::label('meal_amount', '●食事量') !!}
+                    {!! Form::text('meal_amount', null, ['class' => 'form-control']) !!}
+                </div>
+                <div class="form-group row">
+                    {!! Form::label('oxygen', '●酸素濃度（%）') !!}
+                    {!! Form::number('oxygen', null, ['class' => 'form-control']) !!}
+                </div>
+                <div class="form-group row">
+                    {!! Form::label('blood_pressure', '●血圧') !!}
+                    {!! Form::number('blood_pressure', null, ['class' => 'form-control']) !!}
+                </div>
+                {!! Form::submit('更新', ['class' => 'btn btn-success']) !!}
+                {!! Form::close() !!}
+        </div>
+    </div>
+    
 @endsection

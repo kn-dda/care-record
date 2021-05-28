@@ -70,7 +70,7 @@ class UserConditionController extends Controller
         return back();
     }
     
-    // 投稿の削除
+    // 記録データを削除するdestroyアクション
     public function destroy($id)
     {
         // idの値で投稿を検索して取得
@@ -80,9 +80,16 @@ class UserConditionController extends Controller
         if (\Auth::id() === $user_condition->user_id) {
             $user_condition->delete();
         }
+        
+        // user_condition.blade.phpで編集・削除を可能にする
+        return view('userconditions.user_condition', [
+            // 変数を定義
+            'user' => $user,
+            'user_conditions' => $user_conditions,
+        ]);
 
-        // 前のURLへリダイレクトさせる
-        return back();
+        // マイページへリダイレクトさせる
+        return redirect('show');
     }
     
 }
