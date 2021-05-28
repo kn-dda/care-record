@@ -15,7 +15,7 @@
             {!! Form::open(['route' => 'user_condition.store']) !!}
                 <div class="form-group row">
                     {!! Form::label('wake', '●起床時刻') !!}
-                    {!! Form::text('wake', null, ['class' => 'form-control']) !!}
+                    {!! Form::time('wake', null, ['class' => 'form-control']) !!}
                 </div>
                 <div class="form-group row">
                     {!! Form::label('temperature', '●体温') !!}
@@ -30,12 +30,12 @@
                     {!! Form::text('meal_amount', null, ['class' => 'form-control']) !!}
                 </div>
                 <div class="form-group row">
-                    {!! Form::label('oxygen', '●酸素濃度') !!}
-                    {!! Form::text('oxygen', null, ['class' => 'form-control']) !!}
+                    {!! Form::label('oxygen', '●酸素濃度（%）') !!}
+                    {!! Form::number('oxygen', null, ['class' => 'form-control']) !!}
                 </div>
                 <div class="form-group row">
                     {!! Form::label('blood_pressure', '●血圧') !!}
-                    {!! Form::text('blood_pressure', null, ['class' => 'form-control']) !!}
+                    {!! Form::number('blood_pressure', null, ['class' => 'form-control']) !!}
                 </div>
                 {!! Form::submit('記録保存', ['class' => 'btn btn-success btn-block']) !!}
             {!! Form::close() !!}
