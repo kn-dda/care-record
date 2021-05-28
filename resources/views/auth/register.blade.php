@@ -26,7 +26,9 @@
                 
                 <div class="form-group">
                     {!! Form::label('birthday', '誕生日（必須）') !!}
-                    {!! Form::text('birthday', null, ['class' => 'form-control']) !!}
+                    {!! Form::selectRange('birthday',2021, 1921, null, ['class' => 'form-control']) !!}
+                    {!! Form::selectRange('birthday',1, 12, null, ['class' => 'form-control']) !!}
+                    {!! Form::selectRange('birthday',1, 31, null, ['class' => 'form-control']) !!}
                 </div>
 
                 <div class="form-group">
@@ -41,6 +43,9 @@
 
                 {!! Form::submit('登録', ['class' => 'btn btn-success btn-block']) !!}
             {!! Form::close() !!}
+            
+            {{-- ログインページへのリンク --}}
+            <p class="mt-2">既にアカウントをお持ちの場合 {!! link_to_route('login.post', 'ログインはこちらから') !!}</p>
             <style>
                 body {margin-bottom:50px}
             </style>

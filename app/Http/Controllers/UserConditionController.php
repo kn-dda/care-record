@@ -23,57 +23,17 @@ class UserConditionController extends Controller
                 // ユーザの投稿の一覧を作成日時の降順で取得
                 // このユーザの投稿のみを表示
                 $user_conditions = $user->user_condition()->orderBy('created_at', 'desc')->paginate(10); // user_condition()を複数形に変更
-
-                //$data = [
-                    //'user' => $user,
-                    //'user_conditions' => $user_conditions, // 左辺を複数形に変更
-                //];
         
         // showで投稿を一覧表示
         return view('userconditions.show', [
             // 変数を定義
             'user' => $user,
             'user_conditions' => $user_conditions,
-        ]); 
+        ]);
         
         }
 
     }
-    
-    /*
-    // 新規データを作成する
-    public function create()
-    {
-        $user_conditions = new UserCondition;
-
-        // 記録作成ビューを表示
-        //return view('userconditions.form', [
-            // 変数を定義
-            //'user' => $user,
-            //'user_conditions' => $user_conditions,
-        //]);
-    }
-    */
-    
-    /*
-    // mypageを表示
-    public function show()
-    {
-        // 認証済みユーザを取得
-        $user = \Auth::user();
-        
-        // ユーザの投稿の一覧を作成日時の降順で取得
-        // このユーザの投稿のみを表示
-        //$user_conditions = $user->user_condition()->orderBy('created_at', 'desc')->paginate(10);
-                
-        // MyPageで表示
-        return view('userconditions.show', [
-            // 変数を定義
-            'user' => $user,
-            'user_conditions' => $user_conditions,
-        ]);
-    }
-    */
     
     
     // create メソッドを使ってUserConditionを保存
@@ -105,12 +65,6 @@ class UserConditionController extends Controller
             'blood_pressure' => $request->blood_pressure,
         ]);
         
-        // user_conditionで投稿の詳細を表示
-        //return view('userconditions.user_condition', [
-            // 変数を定義
-            //'user' => $user,
-            //'user_conditions' => $user_conditions,
-        //]);
 
         // 前のURLへリダイレクトさせる
         return back();

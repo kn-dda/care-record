@@ -29,6 +29,9 @@
 
             {{-- ユーザ登録ページへのリンク --}}
             <p class="mt-2">アカウントをお持ちでない場合 {!! link_to_route('signup.get', '新規登録はこちらから') !!}</p>
+            <style>
+                body {margin-bottom:50px}
+            </style>
         </div>
     </div>
 @endsection

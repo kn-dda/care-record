@@ -37,7 +37,7 @@
                     {!! Form::label('blood_pressure', '●血圧') !!}
                     {!! Form::number('blood_pressure', null, ['class' => 'form-control']) !!}
                 </div>
-                {!! Form::submit('記録保存', ['class' => 'btn btn-success btn-block']) !!}
+                {!! Form::submit('＋記録を保存', ['class' => 'btn btn-success btn-block']) !!}
             {!! Form::close() !!}
         </div>
     </div>
