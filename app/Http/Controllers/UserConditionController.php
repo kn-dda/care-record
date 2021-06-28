@@ -92,4 +92,8 @@ class UserConditionController extends Controller
         return redirect('show');
     }
     
+    //
+    public function update(Request $request, $id)
+    {
+    
 }

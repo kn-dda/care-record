@@ -1,8 +1,4 @@
-{{-- user_conditionを編集、削除するページ--}}
-@extends('layouts.app')
-
-@section('content')
-
+{{-- IDをクリックすることで表示される詳細ページ --}}
 <h1>id: {{ $user_conditions->id }} の記録編集ページ</h1>
     <div class="row">
         <div class="col-6">
@@ -36,4 +32,3 @@
         </div>
     </div>
     
-@endsection
