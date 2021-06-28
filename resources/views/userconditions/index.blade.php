@@ -1,4 +1,6 @@
 {{-- 体調記録の詳細を表示 --}}
+{{-- マイページにindexのリンクを飛ばしている --}}
+
 @if(Auth::check())
 
     @if (count($user_conditions) > 0)
