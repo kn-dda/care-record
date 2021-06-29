@@ -37,38 +37,38 @@ class UserConditionController extends Controller
     
     
     // create メソッドを使ってUserConditionを保存
-    public function store(Request $request)
-    {
+    //public function store(Request $request)
+    //{
         // 認証済みユーザを取得
         //$user = \Auth::user();
         
         // バリデーション
-        $request->validate([
-            'wake' => 'required|max:255',
-            'temperature' => 'required|max:255',
-            'medicine' => 'required|max:255',
-            'meal_amount' => 'required|max:255',
-            'oxygen' => 'required|max:255',
-            'blood_pressure' => 'required|max:255',
-        ]);
-        
-        //dd($request);
+        //$request->validate([
+            //'wake' => 'required|max:255',
+            //'temperature' => 'required|max:255',
+            //'medicine' => 'required|max:255',
+            //'meal_amount' => 'required|max:255',
+            //'oxygen' => 'required|max:255',
+            //'blood_pressure' => 'required|max:255',
+        //]);
         
         // 認証済みユーザ（閲覧者）の投稿として作成（リクエストされた値をもとに作成）
-        $request->user()->user_condition()->create([ // Userモデルに合わせてuser_condition() 
-        //$user->user_condition()->create([
-            'wake' => $request->wake,
-            'temperature' => $request->temperature,
-            'medicine' => $request->medicine,
-            'meal_amount' => $request->meal_amount,
-            'oxygen' => $request->oxygen,
-            'blood_pressure' => $request->blood_pressure,
-        ]);
+        //$request->user()->user_condition()->create([ // Userモデルに合わせてuser_condition() 
+            //'wake' => $request->wake,
+            //'temperature' => $request->temperature,
+            //'medicine' => $request->medicine,
+            //'meal_amount' => $request->meal_amount,
+            //'oxygen' => $request->oxygen,
+            //'blood_pressure' => $request->blood_pressure,
+        //]);
         
 
         // 前のURLへリダイレクトさせる
-        return back();
-    }
+        //return back();
+    //}
+    
+    //showアクション
+    //public function show()
     
     // 記録データを削除するdestroyアクション
     public function destroy($id)
@@ -92,8 +92,53 @@ class UserConditionController extends Controller
         return redirect('show');
     }
     
-    //
+    //記録を表示する
+    public function edit($id)
+    {
+        //idの値で記録を検索して取得
+        $user_condition = UserCondition::findOrFail($id);
+        //認証済みユーザ（閲覧者）がその記録の所有者である場合は、表示する
+        if (\Auth::id() === $user_condition->user_condition) {
+            return view('userconditions.user_condition', [
+            'wake' => $wake,
+            'temperature' => $temperature,
+            'medicine' => $medicine,
+            'meal_amount' => $meal_amount,
+            'oxygen' => $oxygen,
+            'blood_pressure' => $blood_pressure,
+            ]);
+        }
+    }
+    
+    //記録を更新する
     public function update(Request $request, $id)
     {
+        //idの値でメッセージを検索して取得する
+        $user_condition = UserCondition::findOrFail($id);
+        
+        $data = [];
+        //認証済みユーザ（閲覧者）がその記録の所有者である場合は、記録を更新可能にする
+        if (\Auth::id() === $user_condition->user_id) {
+            $user_condition->wake = $request->wake;
+            $user_condition->temperature = $request->temperature;
+            $user_condition->medicine = $request->medicine;
+            $user_condition->meal_amount = $request->meal_amount;
+            $user_condition->oxygen = $request->oxygen;
+            $user_condition->blood_pressure = $request->blood_pressure;
+            $user_condition->save();
+            
+            $data = [
+                'wake' => $wake,
+                'temperature' => $temperature,
+                'medicine' => $medicine,
+                'meal_amount' => $meal_amount,
+                'oxygen' => $oxygen,
+                'blood_pressure' => $blood_pressure,
+            ];
+        }
+        
+        //user_condition.blade.phpで表示する
+        return view('userconditions.user_condition', $data);
+    }
     
 }
