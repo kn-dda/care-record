@@ -105,4 +105,23 @@ class UserConditionController extends Controller
         return redirect('show');
     }
     
+    // putメソッドを用いて、編集したデータを更新するupdateアクション
+    public function update(Request $request, $id)
+    {
+        //idの値でメッセージを検索して取得する
+        $user_conditions = UserCondition::findOrFail($id);
+
+        //認証済みユーザ（閲覧者）がその記録の所有者である場合は、記録を更新可能にする
+        if (\Auth::id() === $user_conditions->user_id) {
+            $user_conditions->wake = $request->wake;
+            $user_conditions->temperature = $request->temperature;
+            $user_conditions->medicine = $request->medicine;
+            $user_conditions->meal_amount = $request->meal_amount;
+            $user_conditions->oxygen = $request->oxygen;
+            $user_conditions->blood_pressure = $request->blood_pressure;
+        }
+
+        //user_condition.blade.phpで表示する
+        return view('userconditions.user_condition');
+    }
 }
