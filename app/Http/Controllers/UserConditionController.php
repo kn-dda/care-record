@@ -67,8 +67,21 @@ class UserConditionController extends Controller
         return back();
     }
     
-    //showアクション
-    //public function show()
+    //記録データの詳細を表示するshowアクション
+    public function show($id)
+    {
+        //idの値で記録を検索して取得
+        $user_conditions = UserCondition::findOrFail($id);
+        //認証済みユーザ（閲覧者）がそのデータの所有者である場合は、閲覧を可能にする
+        if (\Auth::id() === $user_condtions->user_id) {
+            return view('user_condition.show', [
+                'user_conditions' => $user_condtions,
+            ]);
+        } else {
+            //マイページにリダイレクトさせる
+            return redirect('show');
+        }
+    }
     
     // 記録データを削除するdestroyアクション
     public function destroy($id)
