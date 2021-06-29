@@ -3,9 +3,8 @@
 
 @section('content')
 
-{{-- editing --}}
-$user_condition = 'user_condition
-{{-- editing --}}
+
+{{ $user_condition = 'user_condition' }}
 
 <h1>id: {{ $user_condition->id }} の記録編集ページ</h1>
     <div class="row">
