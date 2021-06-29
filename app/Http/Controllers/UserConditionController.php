@@ -73,9 +73,9 @@ class UserConditionController extends Controller
         //idの値で記録を検索して取得
         $user_conditions = UserCondition::findOrFail($id);
         //認証済みユーザ（閲覧者）がそのデータの所有者である場合は、閲覧を可能にする
-        if (\Auth::id() === $user_condtions->user_id) {
-            return view('user_condition.show', [
-                'user_conditions' => $user_condtions,
+        if (\Auth::id() === $user_conditions->user_id) {
+            return view('userconditions.user_condition', [
+                'user_conditions' => $user_conditions,
             ]);
         } else {
             //マイページにリダイレクトさせる

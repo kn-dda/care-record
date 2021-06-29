@@ -31,7 +31,8 @@
             @foreach ($user_conditions as $user_condition)
             <tr>
                 {{-- user_condition.store ルーティング --}}
-                <td>{!! link_to_route('user_condition.store', $user_condition->id, ['user_condition' => $user_condition->id]) !!}</td>
+                <td>{!! link_to_route('user_condition.show', $user_condition->id, ['user_condition' => $user_condition->id]) !!}</td>
+                    {{-- user_condition.storeをshowに変更 --}}
                 <td>{{ $user_condition->wake }}</td>
                 <td>{{ $user_condition->temperature }}</td>
                 <td>{{ $user_condition->medicine }}</td>
