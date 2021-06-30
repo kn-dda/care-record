@@ -3,13 +3,11 @@
 
 @section('content')
 
-
-{{ $user_condition = 'user_condition' }}
-
-<h1>id: {{ $user_condition->id }} の記録編集ページ</h1>
+{{-- null値エラーのため、数値を代入 --}}
+<h1>id: {{ $user_conditions->{1} }} の記録編集ページ</h1>
     <div class="row">
         <div class="col-6">
-            {{-- {!! Form::model($user_conditions, ['route' => ['user_condition.update', $user_conditions->id], 'method' => 'put']) !!} --}}
+            {!! Form::model($user_conditions, ['route' => ['user_condition.update', $user_conditions->id], 'method' => 'put']) !!}
                 <div class="form-group row">
                     {!! Form::label('wake', '●起床時刻') !!}
                     {!! Form::time('wake', null, ['class' => 'form-control']) !!}
