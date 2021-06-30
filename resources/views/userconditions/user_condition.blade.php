@@ -3,8 +3,7 @@
 
 @section('content')
 
-{{-- null値エラーのため、数値を代入 --}}
-<h1>id: {{ $user_conditions->{1} }} の記録編集ページ</h1>
+<h1>id: {{ $user_conditions->id }} の記録編集ページ</h1>
     <div class="row">
         <div class="col-6">
             {!! Form::model($user_conditions, ['route' => ['user_condition.update', $user_conditions->id], 'method' => 'put']) !!}
