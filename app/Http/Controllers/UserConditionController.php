@@ -109,7 +109,7 @@ class UserConditionController extends Controller
     public function update(Request $request, $id)
     {
         //idの値でメッセージを検索して取得する
-        $user_conditions= UserCondition::findOrFail($id);
+        $user_conditions = UserCondition::findOrFail($id);
 
         //認証済みユーザ（閲覧者）がその記録の所有者である場合は、記録を更新可能にする
         if (\Auth::id() === $user_conditions->user_id) { 

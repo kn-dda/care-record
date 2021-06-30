@@ -1,4 +1,5 @@
 {{-- IDをクリックすることで表示される詳細ページ --}}
+
 @extends('layouts.app')
 
 @section('content')
