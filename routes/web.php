@@ -40,3 +40,4 @@ Route::group(['middleware' => ['auth']], function () {
 // 記録の新規登録を処理(store)、登録データを削除(destroy)
 Route::resource('user_condition', 'UserConditionController', ['only' => ['store', 'destroy', 'edit', 'show', 'update']]); 
 
+//0819
